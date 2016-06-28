@@ -36,6 +36,7 @@ var newImg20 = new productImg('water-can','water-can.jpg');
 var randomNumber = function() {
   return Math.floor(Math.random() * (19 - 0) + 0);
 };
+//when the app loading
 var renderPicture = function() {
   var attachPic1 = document.getElementById('img1');
   var attachPic2 = document.getElementById('img2');
@@ -70,18 +71,23 @@ renderPicture();
 
 //img 1
 var renderPicture1 = function() {
+  var m = 0;
+  // console.log('img1Intial',picSelected2);
+  // while( m < imgNameArray.length) {
+  //   if(imgNameArray[m].path === picSelected2) {
+  //     imgNameArray[m].numberOfTimesIthasBeenClicked ++;
+  //     console.log(imgNameArray[m].nameImg,imgNameArray[m].numberOfTimesIthasBeenClicked);
+  //   }
+  //   m++;
+  // }
   var attachPic1 = document.getElementById('img1');
   var attachPic2 = document.getElementById('img2');
   var attachPic3 = document.getElementById('img3');
-  console.log(attachPic1);
-  imgNameArray[m].numberOfTimesIthasBeenClicked ++;
-  console.log(imgNameArray[m].nameImg,imgNameArray[m].numberOfTimesIthasBeenClicked);
-
-  var imgOneCounter = randomNumber();
-  console.log('random Number', imgOneCounter);
-  picSelected1 = imgNameArray[imgOneCounter].path;
-  // imgNameArray[imgOneCounter].numberOfTimesIthasBeenClicked ++;
-  // console.log(imgNameArray[imgOneCounter].nameImg,imgNameArray[imgOneCounter].numberOfTimesIthasBeenClicked);
+  var imgOneCounter1 = randomNumber();
+  var picSelected1 = imgNameArray[imgOneCounter1].path;
+  imgNameArray[imgOneCounter1].numberOfTimesIthasBeenClicked ++;
+  console.log(imgNameArray[imgOneCounter1].nameImg,imgNameArray[imgOneCounter1].numberOfTimesIthasBeenClicked);
+  picSelected1 = imgNameArray[imgOneCounter1].path;
   attachPic1.src = picSelected1;
   console.log('img1',picSelected1);
   var picSelected2 = imgNameArray[randomNumber()].path;
@@ -102,28 +108,29 @@ var renderPicture1 = function() {
       picSelected3 = imgNameArray[randomNumber()].path;
     }
   }
-//   console.log('img2',picSelected2);
-//   console.log('img3', picSelected3);
-//   attachPic2.src = picSelected2;
-//   attachPic3.src = picSelected3;
+  console.log('img2',picSelected1);
+  console.log('img3', picSelected3);
+  attachPic2.src = picSelected2;
+  attachPic3.src = picSelected3;
 };
-//img 2
+  //img 2
 var renderPicture2 = function() {
-  var m = 0;
-  console.log('img2Intial',picSelected2);
-  while( m < imgNameArray.length) {
-    if(imgNameArray[m].path === picSelected2) {
-      imgNameArray[m].numberOfTimesIthasBeenClicked ++;
-      console.log(imgNameArray[m].nameImg,imgNameArray[m].numberOfTimesIthasBeenClicked);
-    }
-    m++;
-  }
+  // var m = 0;
+  // console.log('img2Intial',picSelected2);
+  // while( m < imgNameArray.length) {
+  //   if(imgNameArray[m].path === picSelected2) {
+  //     imgNameArray[m].numberOfTimesIthasBeenClicked ++;
+  //     console.log(imgNameArray[m].nameImg,imgNameArray[m].numberOfTimesIthasBeenClicked);
+  //   }
+  //   m++;
+  // }
   var attachPic1 = document.getElementById('img1');
   var attachPic2 = document.getElementById('img2');
   var attachPic3 = document.getElementById('img3');
-  console.log('attachPic2',attachPic2);
   var imgOneCounter2 = randomNumber();
-  picSelected2 = imgNameArray[imgOneCounter2].path;
+  imgNameArray[imgOneCounter2].numberOfTimesIthasBeenClicked ++;
+  console.log(imgNameArray[imgOneCounter2].nameImg,imgNameArray[imgOneCounter2].numberOfTimesIthasBeenClicked);
+  var picSelected2 = imgNameArray[imgOneCounter2].path;
   attachPic2.src = picSelected2;
   console.log('img2',picSelected2);
   var picSelected1 = imgNameArray[randomNumber()].path;
@@ -149,6 +156,50 @@ var renderPicture2 = function() {
   attachPic1.src = picSelected1;
   attachPic3.src = picSelected3;
 };
+//img 3
+var renderPicture3 = function() {
+  //var m = 0;
+  // console.log('img1Intial',picSelected2);
+  // while( m < imgNameArray.length) {
+  //   if(imgNameArray[m].path === picSelected2) {
+  //     imgNameArray[m].numberOfTimesIthasBeenClicked ++;
+  //     console.log(imgNameArray[m].nameImg,imgNameArray[m].numberOfTimesIthasBeenClicked);
+  //   }
+  //   m++;
+  // }
+  var attachPic1 = document.getElementById('img1');
+  var attachPic2 = document.getElementById('img2');
+  var attachPic3 = document.getElementById('img3');
+  var imgOneCounter3 = randomNumber();
+  imgNameArray[imgOneCounter3].numberOfTimesIthasBeenClicked ++;
+  console.log(imgNameArray[imgOneCounter3].nameImg,imgNameArray[imgOneCounter3].numberOfTimesIthasBeenClicked);
+  var picSelected3 = imgNameArray[imgOneCounter3].path;
+  attachPic3.src = picSelected3;
+  console.log('img3',picSelected3);
+  var picSelected1 = imgNameArray[randomNumber()].path;
+  var picSelected2 = imgNameArray[randomNumber()].path;
+  if(picSelected3 === picSelected2 )
+  {
+    while(picSelected3 === picSelected2) {
+      picSelected2 = imgNameArray[randomNumber()].path;
+    }
+  } else {
+    if(picSelected3 === picSelected3) {
+      while(picSelected3 === picSelected3)
+        picSelected1 = imgNameArray[randomNumber()].path;
+    }
+  }
+  if(picSelected2 === picSelected1) {
+    while(picSelected2 === picSelected1) {
+      picSelected1 = imgNameArray[randomNumber()].path;
+    }
+  }
+  console.log('img1',picSelected1);
+  console.log('img2', picSelected2);
+  attachPic2.src = picSelected2;
+  attachPic1.src = picSelected1;
+};
+
 var i = 0;
 document.getElementById('img1').addEventListener('click',function(){
   if ( i < 25) {
