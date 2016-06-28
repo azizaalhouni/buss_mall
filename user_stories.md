@@ -1,0 +1,6 @@
+- I want to keep track of overall results to figure out user preferences.
+-I want user to select the contact.
+- I want to show picture does not appear on the screen multiple times.
+- I want to give the user 25 chances to choose .
+- I want to make chart that show how many times the user choose same picture.
+- I want to keep track of how many times the picture has shown and how many times has chosen

@@ -1,7 +1,7 @@
-
+'use strict';
 var imgNameArray = [];
-var productImgName = ['bag','banana','chair','boots','pen','bathroom','breakfast','bubblegum',
-'cthulhu' , 'dog-duck','dragon' , 'pet-sweep' , 'scissors'];
+// var productImgName = ['bag','banana','chair','boots','pen','bathroom','breakfast','bubblegum',
+// 'cthulhu' , 'dog-duck','dragon' , 'pet-sweep' , 'scissors'];
 var numberOfTimesIthasBeenClicked = 0;
 var counter = 0;
 function productImg(nameImg, path) {
@@ -37,149 +37,140 @@ var randomNumber = function() {
   return Math.floor(Math.random() * (19 - 0) + 0);
 };
 var renderPicture = function() {
-  var attachPic = document.getElementById('img1');
-  var attachPic2 = document.getElementById('img2');
-  var attachPic3 = document.getElementById('img3');
-
-  var picSelected1 = imgNameArray[randomNumber()].path;
-  attachPic.src = picSelected1;
-  console.log('img1',picSelected1);
-  var picSelected2 = imgNameArray[randomNumber()].path;
-  var picSelected3 = imgNameArray[randomNumber()].path;
-  if(picSelected1 === picSelected2 )
-  {
-    while(picSelected1 === picSelected2) {
-      picSelected2 = imgNameArray[randomNumber()].path;
-    }
-  } else {
-    if(picSelected1 === picSelected3) {
-      while(picSelected1 === picSelected3)
-        picSelected3 = imgNameArray[randomNumber()].path;
-    }
-  }
-  if(picSelected2 === picSelected3) {
-    while(picSelected2 === picSelected3) {
-      picSelected3 = imgNameArray[randomNumber()].path;
-    }
-  }
-  console.log('img2',picSelected2);
-  console.log('img3', picSelected3);
-  attachPic2.src = picSelected2;
-  attachPic3.src = picSelected3;
-  //attachPic3.src = imgNameArray[randomNumber()].path;
-  // attachPic.src = imgNameArray[randomNumber()].path;
-  //attachPic2.src = imgNameArray[randomNumber()].path;
-};
-renderPicture();
-var renderPicture1 = function() {
-  var attachPic = document.getElementById('img1');
-  var attachPic2 = document.getElementById('img2');
-  var attachPic3 = document.getElementById('img3');
-  var imgOneCounter = randomNumber();
-  var picSelected1 = imgNameArray[imgOneCounter].path;
-  imgNameArray[imgOneCounter].numberOfTimesIthasBeenClicked ++;
-  console.log(imgNameArray[imgOneCounter].numberOfTimesIthasBeenClicked);
-  attachPic.src = picSelected1;
-  console.log('img1',picSelected1);
-  var picSelected2 = imgNameArray[randomNumber()].path;
-  var picSelected3 = imgNameArray[randomNumber()].path;
-  if(picSelected1 === picSelected2 )
-  {
-    while(picSelected1 === picSelected2) {
-      picSelected2 = imgNameArray[randomNumber()].path;
-    }
-  } else {
-    if(picSelected1 === picSelected3) {
-      while(picSelected1 === picSelected3)
-        picSelected3 = imgNameArray[randomNumber()].path;
-    }
-  }
-  if(picSelected2 === picSelected3) {
-    while(picSelected2 === picSelected3) {
-      picSelected3 = imgNameArray[randomNumber()].path;
-    }
-  }
-  console.log('img2',picSelected2);
-  console.log('img3', picSelected3);
-  attachPic2.src = picSelected2;
-  attachPic3.src = picSelected3;
-};
-var renderPicture2 = function() {
-  var attachPic = document.getElementById('img1');
-  var attachPic2 = document.getElementById('img2');
-  var attachPic3 = document.getElementById('img3');
-  var imgOneCounter = randomNumber();
-  var picSelected2 = imgNameArray[imgOneCounter].path;
-  imgNameArray[imgOneCounter].numberOfTimesIthasBeenClicked ++;
-  console.log(imgNameArray[imgOneCounter].numberOfTimesIthasBeenClicked);
-  attachPic2.src = picSelected2;
-  console.log('img2',picSelected1);
-  var picSelected1 = imgNameArray[randomNumber()].path;
-  var picSelected3 = imgNameArray[randomNumber()].path;
-  if(picSelected1 === picSelected2 )
-  {
-    while(picSelected1 === picSelected2) {
-      picSelected2 = imgNameArray[randomNumber()].path;
-    }
-  } else {
-    if(picSelected1 === picSelected3) {
-      while(picSelected1 === picSelected3)
-        picSelected3 = imgNameArray[randomNumber()].path;
-    }
-  }
-  if(picSelected2 === picSelected3) {
-    while(picSelected2 === picSelected3) {
-      picSelected3 = imgNameArray[randomNumber()].path;
-    }
-  }
-  console.log('img2',picSelected2);
-  console.log('img3', picSelected3);
-  attachPic1.src = picSelected1;
-  attachPic3.src = picSelected3;
-};
-var renderPicture3 = function() {
   var attachPic1 = document.getElementById('img1');
   var attachPic2 = document.getElementById('img2');
   var attachPic3 = document.getElementById('img3');
-  var imgOneCounter = randomNumber();
-  var picSelected3 = imgNameArray[imgOneCounter].path;
-  imgNameArray[imgOneCounter].numberOfTimesIthasBeenClicked ++;
-  console.log(imgNameArray[imgOneCounter].numberOfTimesIthasBeenClicked);
-  attachPic3.src = picSelected3;
-  console.log('img1',picSelected3);
-  var picSelected2 = imgNameArray[randomNumber()].path;
   var picSelected1 = imgNameArray[randomNumber()].path;
-  if(picSelected3 === picSelected2 )
+  attachPic1.src = picSelected1;
+  console.log('img1Intial',picSelected1);
+  var picSelected2 = imgNameArray[randomNumber()].path;
+  var picSelected3 = imgNameArray[randomNumber()].path;
+  if(picSelected1 === picSelected2 )
   {
-    while(picSelected3 === picSelected2) {
+    while(picSelected1 === picSelected2) {
       picSelected2 = imgNameArray[randomNumber()].path;
     }
   } else {
-    if(picSelected3 === picSelected3) {
-      while(picSelected3 === picSelected1)
-        picSelected1 = imgNameArray[randomNumber()].path;
+    if(picSelected1 === picSelected3) {
+      while(picSelected1 === picSelected3)
+        picSelected3 = imgNameArray[randomNumber()].path;
     }
   }
-  if(picSelected2 === picSelected1) {
+  if(picSelected2 === picSelected3) {
+    while(picSelected2 === picSelected3) {
+      picSelected3 = imgNameArray[randomNumber()].path;
+    }
+  }
+  console.log('img2  ',picSelected2);
+  console.log('img3  ', picSelected3);
+  attachPic2.src = picSelected2;
+  attachPic3.src = picSelected3;
+};
+renderPicture();
+
+//img 1
+var renderPicture1 = function() {
+  var attachPic1 = document.getElementById('img1');
+  var attachPic2 = document.getElementById('img2');
+  var attachPic3 = document.getElementById('img3');
+  console.log(attachPic1);
+  imgNameArray[m].numberOfTimesIthasBeenClicked ++;
+  console.log(imgNameArray[m].nameImg,imgNameArray[m].numberOfTimesIthasBeenClicked);
+
+  var imgOneCounter = randomNumber();
+  console.log('random Number', imgOneCounter);
+  picSelected1 = imgNameArray[imgOneCounter].path;
+  // imgNameArray[imgOneCounter].numberOfTimesIthasBeenClicked ++;
+  // console.log(imgNameArray[imgOneCounter].nameImg,imgNameArray[imgOneCounter].numberOfTimesIthasBeenClicked);
+  attachPic1.src = picSelected1;
+  console.log('img1',picSelected1);
+  var picSelected2 = imgNameArray[randomNumber()].path;
+  var picSelected3 = imgNameArray[randomNumber()].path;
+  if(picSelected1 === picSelected2 )
+  {
+    while(picSelected1 === picSelected2) {
+      picSelected2 = imgNameArray[randomNumber()].path;
+    }
+  } else {
+    if(picSelected1 === picSelected3) {
+      while(picSelected1 === picSelected3)
+        picSelected3 = imgNameArray[randomNumber()].path;
+    }
+  }
+  if(picSelected2 === picSelected3) {
+    while(picSelected2 === picSelected3) {
+      picSelected3 = imgNameArray[randomNumber()].path;
+    }
+  }
+//   console.log('img2',picSelected2);
+//   console.log('img3', picSelected3);
+//   attachPic2.src = picSelected2;
+//   attachPic3.src = picSelected3;
+};
+//img 2
+var renderPicture2 = function() {
+  var m = 0;
+  console.log('img2Intial',picSelected2);
+  while( m < imgNameArray.length) {
+    if(imgNameArray[m].path === picSelected2) {
+      imgNameArray[m].numberOfTimesIthasBeenClicked ++;
+      console.log(imgNameArray[m].nameImg,imgNameArray[m].numberOfTimesIthasBeenClicked);
+    }
+    m++;
+  }
+  var attachPic1 = document.getElementById('img1');
+  var attachPic2 = document.getElementById('img2');
+  var attachPic3 = document.getElementById('img3');
+  console.log('attachPic2',attachPic2);
+  var imgOneCounter2 = randomNumber();
+  picSelected2 = imgNameArray[imgOneCounter2].path;
+  attachPic2.src = picSelected2;
+  console.log('img2',picSelected2);
+  var picSelected1 = imgNameArray[randomNumber()].path;
+  var picSelected3 = imgNameArray[randomNumber()].path;
+  if(picSelected2 === picSelected1 )
+  {
     while(picSelected2 === picSelected1) {
       picSelected1 = imgNameArray[randomNumber()].path;
     }
+  } else {
+    if(picSelected2 === picSelected3) {
+      while(picSelected2 === picSelected3)
+        picSelected3 = imgNameArray[randomNumber()].path;
+    }
   }
-  console.log('img2',picSelected2);
+  if(picSelected1 === picSelected3) {
+    while(picSelected1 === picSelected3) {
+      picSelected3 = imgNameArray[randomNumber()].path;
+    }
+  }
+  console.log('img1',picSelected1);
   console.log('img3', picSelected3);
-  attachPic2.src = picSelected2;
   attachPic1.src = picSelected1;
+  attachPic3.src = picSelected3;
 };
 var i = 0;
-while( i < 25 ) {
-  document.getElementById('img1').addEventListener('click',function(){
+document.getElementById('img1').addEventListener('click',function(){
+  if ( i < 25) {
     renderPicture1();
-  });
-  document.getElementById('img2').addEventListener('click',function(){
+    i++;
+  } else {
+    alert('game over');
+  }
+});
+document.getElementById('img2').addEventListener('click',function(){
+  if( i < 25 ){
     renderPicture2();
-  });
-  document.getElementById('img3').addEventListener('click',function(){
+    i++;
+  } else {
+    alert('game over');
+  }
+});
+document.getElementById('img3').addEventListener('click',function(){
+  if( i < 25 ){
     renderPicture3();
-  });
-}
-alert('Game over');
+    i++;
+  } else {
+    alert('game over');
+  }
+});
