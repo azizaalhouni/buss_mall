@@ -92,6 +92,10 @@ div container{
   margin-bottom : 30px;
   border-style:ridge;
 }
+.hidden{
+  visibility:hidden;
+  display:none;
+}
 #chart{
   background-color: rgba(103, 14, 120, 0.09);
 }

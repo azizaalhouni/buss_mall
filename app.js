@@ -52,11 +52,13 @@ var renderPicture = function() {
   }
   attachPic1.src = imgNameArray[one].path;
   imgNameArray[one].views ++;
-  //console.log('views',imgNameArray[one].nameImg,imgNameArray[one].views);
+  console.log('views',imgNameArray[one].nameImg,imgNameArray[one].views);
   attachPic2.src = imgNameArray[two].path;
   imgNameArray[two].views ++;
+  console.log('views',imgNameArray[two].nameImg,imgNameArray[two].views);
   attachPic3.src = imgNameArray[three].path;
   imgNameArray[three].views ++;
+  console.log('views',imgNameArray[three].nameImg,imgNameArray[three].views);
 };
 renderPicture();
 var labelsArray = function() {
@@ -70,8 +72,34 @@ var dataCounter = function() {
   var clicks = [];
   for( var a = 0 ; a < imgNameArray.length ; a++ ) {
     clicks[a] = imgNameArray[a].numberOfTimesIthasBeenClicked;
+    //Local Storage
   }
   return clicks;
+};
+var viewsCounter = function() {
+  var views = [];
+  for ( var a = 0 ; a < imgNameArray.length ; a ++)
+  {
+    views[a] = imgNameArray[a].views;
+  }
+};
+// set local storage
+var setingLocalStorage = function() {
+  var nameArray = labelsArray();
+  console.log(nameArray);
+  localStorage.setItem('clicks', JSON.stringify(nameArray));
+};
+var setingDataLocalStorage = function() {
+  var dataArray = dataCounter();
+  console.log(dataArray);
+  localStorage.setItem('numberOfClicks',JSON.stringify(dataArray));
+};
+
+var gettingLocalStorage = function() {
+  var localData = JSON.parse(localStorage.getItem('numberOfClicks'));
+  console.log(localData);
+  //document.getElementById('showLocalStorage').value = view;
+  document.getElementById('showLocalStorage').value = localData;
 };
 var updateChartArray = function() {
   var ctx = document.getElementById('canvasPlace');
@@ -115,6 +143,11 @@ var updateChartArray = function() {
 function hideChart(){
   document.getElementById('canvasPlace').hidden = true;
 }
+// function showLocalStorage() {
+//   for( var j = 0 ; j < imgNameArray.length ; j ++ ) {
+//     document.getElementById('showLocalStorage').value = localStorage.getItem(imgNameArray[j].numberOfTimesIthasBeenClicke);
+//   }
+// }
 var i = 0;
 document.getElementById('img1').addEventListener('click',function(){
   if ( i < 25) {
@@ -131,9 +164,13 @@ document.getElementById('img1').addEventListener('click',function(){
       }
     }
     renderPicture();
+    setingDataLocalStorage();
+    setingLocalStorage();
     i++;
   } else {
     document.getElementById ('drowChart').style.visibility = 'visible';
+    document.getElementById('container').style.display = 'none';
+    document.getElementById('Container1').style.display = 'none';
   }
 });
 document.getElementById('img2').addEventListener('click',function(){
@@ -150,10 +187,14 @@ document.getElementById('img2').addEventListener('click',function(){
       }
     }
     console.log(photoPath);
+    setingDataLocalStorage();
+    setingLocalStorage();
     renderPicture();
     i++;
   } else {
     document.getElementById ('drowChart').style.visibility = 'visible';
+    document.getElementById('container').style.display = 'none';
+    document.getElementById('Container1').style.display = 'none';
   }
 });
 document.getElementById('img3').addEventListener('click',function(){
@@ -169,12 +210,17 @@ document.getElementById('img3').addEventListener('click',function(){
         console.log('numberofClicks',imgNameArray[j].path,imgNameArray[j].numberOfTimesIthasBeenClicked);
       }
     }
+    setingDataLocalStorage();
+    setingLocalStorage();
     renderPicture();
     i++;
   } else {
     document.getElementById ('drowChart').style.visibility = 'visible';
+    document.getElementById('container').style.display = 'none';
+    document.getElementById('Container1').style.display = 'none';
   }
 });
 document.getElementById('drowChart').addEventListener('click', function(){
   updateChartArray();
+  gettingLocalStorage();
 });
