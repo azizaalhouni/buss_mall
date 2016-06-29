@@ -1,13 +1,10 @@
 'use strict';
 var imgNameArray = [];
-// var productImgName = ['bag','banana','chair','boots','pen','bathroom','breakfast','bubblegum',
-// 'cthulhu' , 'dog-duck','dragon' , 'pet-sweep' , 'scissors'];
-var numberOfTimesIthasBeenClicked = 0;
-var counter = 0;
 function productImg(nameImg, path) {
   this.nameImg = nameImg;
   this.path = path;
-  this.numberOfTimesIthasBeenClicked = numberOfTimesIthasBeenClicked;
+  this.numberOfTimesIthasBeenClicked = 0 ;
+  this.views = 0;
   imgNameArray.push(this);
 }
 
@@ -36,172 +33,150 @@ var newImg20 = new productImg('water-can','water-can.jpg');
 var randomNumber = function() {
   return Math.floor(Math.random() * (19 - 0) + 0);
 };
-//var counterImg1 = randomNumber();
-//var counterImg2 = randomNumber();
-//var counterImg3 = randomNumber();
-
-//when the app loading
 var renderPicture = function() {
   var attachPic1 = document.getElementById('img1');
   var attachPic2 = document.getElementById('img2');
   var attachPic3 = document.getElementById('img3');
-  var picSelected1 = imgNameArray[randomNumber()].path;
-  attachPic1.src = picSelected1;
-  console.log('img1Intial',picSelected1);
-  var picSelected2 = imgNameArray[randomNumber()].path;
-  var picSelected3 = imgNameArray[randomNumber()].path;
-  if(picSelected1 === picSelected2 )
-  {
-    while(picSelected1 === picSelected2) {
-      picSelected2 = imgNameArray[randomNumber()].path;
-    }
-  } else {
-    if(picSelected1 === picSelected3) {
-      while(picSelected1 === picSelected3)
-        picSelected3 = imgNameArray[randomNumber()].path;
+  var one = randomNumber();
+  var two = randomNumber();
+  var three = randomNumber();
+  if(one === two ) {
+    while(one === two) {
+      two = randomNumber();
     }
   }
-  if(picSelected2 === picSelected3) {
-    while(picSelected2 === picSelected3) {
-      picSelected3 = imgNameArray[randomNumber()].path;
+  if(one === three || two === three) {
+    while(one === three || two === three) {
+      three = randomNumber();
     }
   }
-  console.log('img2  ',picSelected2);
-  console.log('img3  ', picSelected3);
-  attachPic2.src = picSelected2;
-  attachPic3.src = picSelected3;
+  attachPic1.src = imgNameArray[one].path;
+  imgNameArray[one].views ++;
+  //console.log('views',imgNameArray[one].nameImg,imgNameArray[one].views);
+  attachPic2.src = imgNameArray[two].path;
+  imgNameArray[two].views ++;
+  attachPic3.src = imgNameArray[three].path;
+  imgNameArray[three].views ++;
 };
 renderPicture();
-
-//img 1
-var renderPicture1 = function() {
-  // if(i === 0) {
-  //   imgNameArray[counterImg1].numberOfTimesIthasBeenClicked ++;
-  //   console.log(imgNameArray[counterImg1].nameImg, imgNameArray[counterImg1].numberOfTimesIthasBeenClicked ++);
-  // }
-  var attachPic1 = document.getElementById('img1');
-  var attachPic2 = document.getElementById('img2');
-  var attachPic3 = document.getElementById('img3');
-  var imgOneCounter1 = randomNumber();
-  var picSelected1 = imgNameArray[imgOneCounter1].path;
-  imgNameArray[imgOneCounter1].numberOfTimesIthasBeenClicked ++;
-  console.log(imgNameArray[imgOneCounter1].nameImg,imgNameArray[imgOneCounter1].numberOfTimesIthasBeenClicked);
-  attachPic1.src = picSelected1;
-  console.log('img1',picSelected1);
-  var picSelected2 = imgNameArray[randomNumber()].path;
-  var picSelected3 = imgNameArray[randomNumber()].path;
-  if(picSelected1 === picSelected2 )
-  {
-    while(picSelected1 === picSelected2) {
-      picSelected2 = imgNameArray[randomNumber()].path;
-    }
-  } else {
-    if(picSelected1 === picSelected3) {
-      while(picSelected1 === picSelected3)
-        picSelected3 = imgNameArray[randomNumber()].path;
-    }
+var labelsArray = function() {
+  var title = [];
+  for( var a = 0 ; a < imgNameArray.length ; a ++) {
+    title[a] = imgNameArray[a].nameImg;
   }
-  if(picSelected2 === picSelected3) {
-    while(picSelected2 === picSelected3) {
-      picSelected3 = imgNameArray[randomNumber()].path;
-    }
-  }
-  console.log('img2',picSelected1);
-  console.log('img3', picSelected3);
-  attachPic2.src = picSelected2;
-  attachPic3.src = picSelected3;
+  return title;
 };
-  //img 2
-var renderPicture2 = function() {
-  var attachPic1 = document.getElementById('img1');
-  var attachPic2 = document.getElementById('img2');
-  var attachPic3 = document.getElementById('img3');
-  var imgOneCounter2 = randomNumber();
-  imgNameArray[imgOneCounter2].numberOfTimesIthasBeenClicked ++;
-  console.log(imgNameArray[imgOneCounter2].nameImg,imgNameArray[imgOneCounter2].numberOfTimesIthasBeenClicked);
-  var picSelected2 = imgNameArray[imgOneCounter2].path;
-  attachPic2.src = picSelected2;
-  console.log('img2',picSelected2);
-  var picSelected1 = imgNameArray[randomNumber()].path;
-  var picSelected3 = imgNameArray[randomNumber()].path;
-  if(picSelected2 === picSelected1 )
-  {
-    while(picSelected2 === picSelected1) {
-      picSelected1 = imgNameArray[randomNumber()].path;
-    }
-  } else {
-    if(picSelected2 === picSelected3) {
-      while(picSelected2 === picSelected3)
-        picSelected3 = imgNameArray[randomNumber()].path;
-    }
+var dataCounter = function() {
+  var clicks = [];
+  for( var a = 0 ; a < imgNameArray.length ; a++ ) {
+    clicks[a] = imgNameArray[a].numberOfTimesIthasBeenClicked;
   }
-  if(picSelected1 === picSelected3) {
-    while(picSelected1 === picSelected3) {
-      picSelected3 = imgNameArray[randomNumber()].path;
-    }
-  }
-  console.log('img1',picSelected1);
-  console.log('img3', picSelected3);
-  attachPic1.src = picSelected1;
-  attachPic3.src = picSelected3;
+  return clicks;
 };
-//img 3
-var renderPicture3 = function() {
-  var attachPic1 = document.getElementById('img1');
-  var attachPic2 = document.getElementById('img2');
-  var attachPic3 = document.getElementById('img3');
-  var imgOneCounter3 = randomNumber();
-  imgNameArray[imgOneCounter3].numberOfTimesIthasBeenClicked ++;
-  console.log(imgNameArray[imgOneCounter3].nameImg,imgNameArray[imgOneCounter3].numberOfTimesIthasBeenClicked);
-  var picSelected3 = imgNameArray[imgOneCounter3].path;
-  attachPic3.src = picSelected3;
-  console.log('img3',picSelected3);
-  var picSelected1 = imgNameArray[randomNumber()].path;
-  var picSelected2 = imgNameArray[randomNumber()].path;
-  if(picSelected3 === picSelected2 )
-  {
-    while(picSelected3 === picSelected2) {
-      picSelected2 = imgNameArray[randomNumber()].path;
+var updateChartArray = function() {
+  var ctx = document.getElementById('canvasPlace');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labelsArray(),
+      datasets: [{
+        label: '# of Votes',
+        data: dataCounter(),
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero:true
+          }
+        }]
+      }
     }
-  } else {
-    if(picSelected3 === picSelected1) {
-      while(picSelected3 === picSelected1)
-        picSelected1 = imgNameArray[randomNumber()].path;
-    }
-  }
-  if(picSelected2 === picSelected1) {
-    while(picSelected2 === picSelected1) {
-      picSelected1 = imgNameArray[randomNumber()].path;
-    }
-  }
-  //console.log('img1',picSelected1);
-  //console.log('img2', picSelected2);
-  attachPic2.src = picSelected2;
-  attachPic1.src = picSelected1;
+  });
 };
-
 var i = 0;
 document.getElementById('img1').addEventListener('click',function(){
   if ( i < 25) {
-    renderPicture1();
+    var pictureClicked = document.getElementById('img1');
+    var photoPath = pictureClicked.src;
+    var splitPhotoPath = photoPath.split('/');
+    splitPhotoPath[splitPhotoPath.length - 1];
+    //console.log('split',splitPhotoPath[splitPhotoPath.length - 1]);
+    for(var j = 0 ; j < imgNameArray.length ; j++)
+    {
+      //console.log("for loop");
+      if(splitPhotoPath[splitPhotoPath.length - 1] === imgNameArray[j].path) {
+        imgNameArray[j].numberOfTimesIthasBeenClicked ++;
+        console.log('numberofClicks',imgNameArray[j].path,imgNameArray[j].numberOfTimesIthasBeenClicked);
+      }
+    }
+    renderPicture();
     i++;
   } else {
+    document.getElementById ('drowChart').style.visibility = 'visible';
+    updateChartArray();
     alert('game over');
   }
 });
 document.getElementById('img2').addEventListener('click',function(){
   if( i < 25 ){
-    renderPicture2();
+    var pictureClicked = document.getElementById('img2');
+    var photoPath = pictureClicked.src;
+    var splitPhotoPath = photoPath.split('/');
+    splitPhotoPath[splitPhotoPath.length - 1];
+    for(var j = 0 ; j < imgNameArray.length ; j++)
+    {
+      //console.log("for loop");
+      if(splitPhotoPath[splitPhotoPath.length - 1] === imgNameArray[j].path) {
+        imgNameArray[j].numberOfTimesIthasBeenClicked ++;
+        console.log('numberofClicks',imgNameArray[j].path,imgNameArray[j].numberOfTimesIthasBeenClicked);
+      }
+    }
+    console.log(photoPath);
+    renderPicture();
     i++;
   } else {
+    document.getElementById ('drowChart').style.visibility = 'visible';
+    updateChartArray();
     alert('game over');
   }
 });
 document.getElementById('img3').addEventListener('click',function(){
   if( i < 25 ){
-    renderPicture3();
+    var pictureClicked = document.getElementById('img3');
+    var photoPath = pictureClicked.src;
+    var splitPhotoPath = photoPath.split('/');
+    splitPhotoPath[splitPhotoPath.length - 1];
+    for(var j = 0 ; j < imgNameArray.length ; j++)
+    {
+      if(splitPhotoPath[splitPhotoPath.length - 1] === imgNameArray[j].path) {
+        imgNameArray[j].numberOfTimesIthasBeenClicked ++;
+        console.log('numberofClicks',imgNameArray[j].path,imgNameArray[j].numberOfTimesIthasBeenClicked);
+      }
+    }
+    renderPicture();
     i++;
   } else {
+    document.getElementById ('drowChart').style.visibility = 'visible';
+    updateChartArray();
     alert('game over');
   }
 });

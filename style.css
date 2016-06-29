@@ -1,9 +1,16 @@
+#drowChart{
+visibility:hidden;
+  width: 50px;
+  hight:50px;
+  align-items: center;
+}
+
 img{
   width: 225px;
   height: 225px;
   padding-right: 90px;
 }
-div{
+div container{
   border-style: double;
   border-color: red;
   border-width: 3px;
