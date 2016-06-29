@@ -31,7 +31,7 @@ var newImg19 = new productImg('pen','pen.jpg');
 var newImg20 = new productImg('water-can','water-can.jpg');
 
 var randomNumber = function() {
-  return Math.floor(Math.random() * (19 - 0) + 0);
+  return Math.floor(Math.random() * 19);
 };
 var renderPicture = function() {
   var attachPic1 = document.getElementById('img1');
@@ -112,6 +112,9 @@ var updateChartArray = function() {
     }
   });
 };
+function hideChart(){
+  document.getElementById('canvasPlace').hidden = true;
+}
 var i = 0;
 document.getElementById('img1').addEventListener('click',function(){
   if ( i < 25) {
@@ -122,7 +125,6 @@ document.getElementById('img1').addEventListener('click',function(){
     //console.log('split',splitPhotoPath[splitPhotoPath.length - 1]);
     for(var j = 0 ; j < imgNameArray.length ; j++)
     {
-      //console.log("for loop");
       if(splitPhotoPath[splitPhotoPath.length - 1] === imgNameArray[j].path) {
         imgNameArray[j].numberOfTimesIthasBeenClicked ++;
         console.log('numberofClicks',imgNameArray[j].path,imgNameArray[j].numberOfTimesIthasBeenClicked);
@@ -132,8 +134,6 @@ document.getElementById('img1').addEventListener('click',function(){
     i++;
   } else {
     document.getElementById ('drowChart').style.visibility = 'visible';
-    updateChartArray();
-    alert('game over');
   }
 });
 document.getElementById('img2').addEventListener('click',function(){
@@ -144,7 +144,6 @@ document.getElementById('img2').addEventListener('click',function(){
     splitPhotoPath[splitPhotoPath.length - 1];
     for(var j = 0 ; j < imgNameArray.length ; j++)
     {
-      //console.log("for loop");
       if(splitPhotoPath[splitPhotoPath.length - 1] === imgNameArray[j].path) {
         imgNameArray[j].numberOfTimesIthasBeenClicked ++;
         console.log('numberofClicks',imgNameArray[j].path,imgNameArray[j].numberOfTimesIthasBeenClicked);
@@ -155,8 +154,6 @@ document.getElementById('img2').addEventListener('click',function(){
     i++;
   } else {
     document.getElementById ('drowChart').style.visibility = 'visible';
-    updateChartArray();
-    alert('game over');
   }
 });
 document.getElementById('img3').addEventListener('click',function(){
@@ -176,7 +173,8 @@ document.getElementById('img3').addEventListener('click',function(){
     i++;
   } else {
     document.getElementById ('drowChart').style.visibility = 'visible';
-    updateChartArray();
-    alert('game over');
   }
+});
+document.getElementById('drowChart').addEventListener('click', function(){
+  updateChartArray();
 });
