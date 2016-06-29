@@ -5,10 +5,15 @@
    <link rel="stylesheet" href="reset.css">
   <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js"></script>
  </head>
   <body>
-    <main>
+<header>
+  <div class = "inner">
       <h1>BUSSMALL MARKETING STUDY<h1>
+  </div>
+</header>
+            <main>
       <div class="Paragraph1"> Thank you for participating in BusMall's product study. Your input will help us to tailor our catalog experience
         for the maximum enoyment of numerous Puget Sound transit riders
       </div>
@@ -26,7 +31,16 @@
         <img id = "img2"></img>
         <img id = "img3"></img>
       </div>
-    </main>
+
+    <!-- <div id = "chartButton"> -->
+    <p class = "button">
+    <input id = "drowChart" type="button" value = "Show the Chart"  ></button></p>
+  </main>
+  <footer>
+    <div id = "chart">
+    <canvas id="canvasPlace" width="800px" height="400px"></canvas>
+    </div>
+<footer>
   <script src="app.js"></script>
  </body>
 </html>

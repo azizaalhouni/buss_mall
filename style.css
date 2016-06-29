@@ -1,9 +1,68 @@
+* {
+/*outline: dotted 1px red;*/
+}
+header{
+  width: 960px;
+  background-image: url("img/background.jpg");*/
+  margin: 30px auto;
+  height: 150;
+  padding-top: 65px;
+  margin: 30px auto;
+}
+}
+.inner {
+  margin: 30px auto;
+      width: 960px;
+}
+h1 {
+  text-align:center;
+  margin-top: 50px;
+  font-size: 30px;
+  font-style: normal;
+  color: white;
+  font-weight: 800;
+  /*background-image: url("img/images.jpg");*/
+}
+
+main{
+ margin: 30px auto;
+  width : 960px;
+  background-color:#bd1491;
+  color:white;
+}
+
+
+
+p.button {
+    background: #cb34d9;
+    background-image: linear-gradient(to bottom, #cb34d9, #b82bb3);
+    border-radius: 28px;
+    font-family: Courier New;
+    color: #ffffff;
+    font-size: 40px;
+    padding: 25px 28px 25px 20px;
+    text-decoration: none;
+    margin: 34px auto;
+    width: 162px;
+    text-align: center;
+    visibility: hidden;
+  }
+p.button :hover {
+  background: #fcdc3c;
+  background-image: -webkit-linear-gradient(top, #fcdc3c, #d934ad);
+  background-image: -moz-linear-gradient(top, #fcdc3c, #d934ad);
+  background-image: -ms-linear-gradient(top, #fcdc3c, #d934ad);
+  background-image: -o-linear-gradient(top, #fcdc3c, #d934ad);
+  background-image: linear-gradient(to bottom, #fcdc3c, #d934ad);
+  text-decoration: none;
+}
+
 img{
   width: 225px;
   height: 225px;
   padding-right: 90px;
 }
-div{
+div container{
   border-style: double;
   border-color: red;
   border-width: 3px;
@@ -13,20 +72,31 @@ div{
   margin-bottom: 40px;
 }
 .paragraph1 {
-
+  padding-top: 30px;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom:30px;
   border-style: dashed;
+  border-color:black;
+  border-bottom: 30px;
 }
 .paragraph2{
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 30px;
   border-style:solid;
 }
 .paragraph3 {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom : 30px;
   border-style:ridge;
 }
-h1 {
-  text-align:center;
-  margin-top: 50px;
-  font-size: 30px;
-  font-style: normal;
-  color: sienna;
-  font-weight: 800;
+#chart{
+  background-color: rgba(103, 14, 120, 0.09);
+}
+footer{
+  width:960px;
+  margin: 30px auto;
+  margin-top:30px;
 }
