@@ -14,6 +14,7 @@
   </div>
 </header>
             <main>
+              <div id = "Container1">
       <div class="Paragraph1"> Thank you for participating in BusMall's product study. Your input will help us to tailor our catalog experience
         for the maximum enoyment of numerous Puget Sound transit riders
       </div>
@@ -26,6 +27,7 @@
         Note: that after you have made 25 vote, you will be given an option to view the cumulative voting
         results, and exit from the study.
       </div>
+      </div>
       <div id="container">
         <img id = "img1"></img>
         <img id = "img2"></img>
@@ -34,11 +36,19 @@
 
     <!-- <div id = "chartButton"> -->
     <p class = "button">
-    <input id = "drowChart" type="button" value = "Show the Chart"  ></button></p>
+    <input id = "drowChart" type="button" value = "Show the Chart"  ></button>
+    <input id = "drowTable" type = "button" value = "Show the Table"></button>
+  </p>
+<p class = "showLocalStorage">
+</p>
   </main>
   <footer>
-    <div id = "chart">
+    <!-- <div id = "chart">
     <canvas id="canvasPlace" width="800px" height="400px"></canvas>
+    </div> -->
+    <table id = "drowTablePercentage"></table>
+    <div id = "chart2">
+    <canvas id="canvasPlace2" width="800px" height="400px"></canvas>
     </div>
 <footer>
   <script src="app.js"></script>

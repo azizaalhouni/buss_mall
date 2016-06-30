@@ -31,7 +31,20 @@ main{
   color:white;
 }
 
+table, td {
+	border: 1px solid black;
+  margin:30px auto;
+}
 
+td {
+	padding: 10px;
+	border-radius: 15px;
+}
+th {
+  padding: 10px;
+	background-color: navy;
+	color: white;
+}
 
 p.button {
     background: #cb34d9;
@@ -91,6 +104,10 @@ div container{
   text-align: center;
   margin-bottom : 30px;
   border-style:ridge;
+}
+.hidden{
+  visibility:hidden;
+  display:none;
 }
 #chart{
   background-color: rgba(103, 14, 120, 0.09);
