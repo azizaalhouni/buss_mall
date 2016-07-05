@@ -8,26 +8,26 @@ function productImg(nameImg, path) {
   imgNameArray.push(this);
 }
 
-var newImg = new productImg ('bag', 'bag.jpg');
-var newImg1 = new productImg ('banana', 'banana.jpg');
-var newImg2 = new productImg ('chair', 'chair.jpg');
-var newImg3 = new productImg('boots', 'boots.jpg');
-var newImg4 = new productImg('pen','pen.jpg');
-var newImg5 = new productImg ('bathroom', 'bathroom.jpg');
-var newImg6 = new productImg ('breakfast', 'breakfast.jpg');
-var newImg7 = new productImg ('bubblegum', 'bubblegum.jpg');
-var newImg8 = new productImg('cthulhu', 'cthulhu.jpg');
-var newImg9 = new productImg('dog-duck','dog-duck.jpg');
-var newImg10 = new productImg ('dragon', 'dragon.jpg');
-var newImg11 = new productImg ('pet-sweep', 'pet-sweep.jpg');
-var newImg12 = new productImg ('scissors', 'scissors.jpg');
-var newImg13 = new productImg('shark', 'shark.jpg');
-var newImg14 = new productImg('sweep','sweep.png');
-var newImg15 = new productImg ('tauntaun', 'tauntaun.jpg');
-var newImg16 = new productImg ('unicorn', 'unicorn.jpg');
-var newImg17 = new productImg ('usb', 'usb.gif');
-var newImg18 = new productImg ('wine-glass','wine-glass.jpg');
-var newImg19 = new productImg('water','water.jpg');
+var newImg = new productImg ('bag', 'img/bag.jpg');
+var newImg1 = new productImg ('banana', 'img/banana.jpg');
+var newImg2 = new productImg ('chair', 'img/chair.jpg');
+var newImg3 = new productImg('boots', 'img/boots.jpg');
+var newImg4 = new productImg('pen','img/pen.jpg');
+var newImg5 = new productImg ('bathroom', 'img/bathroom.jpg');
+var newImg6 = new productImg ('breakfast', 'img/breakfast.jpg');
+var newImg7 = new productImg ('bubblegum', 'img/bubblegum.jpg');
+var newImg8 = new productImg('cthulhu', 'img/cthulhu.jpg');
+var newImg9 = new productImg('dog-duck','img/dog-duck.jpg');
+var newImg10 = new productImg ('dragon', 'img/dragon.jpg');
+var newImg11 = new productImg ('pet-sweep', 'img/pet-sweep.jpg');
+var newImg12 = new productImg ('scissors', 'img/scissors.jpg');
+var newImg13 = new productImg('shark', 'img/shark.jpg');
+var newImg14 = new productImg('sweep','img/sweep.png');
+var newImg15 = new productImg ('tauntaun', 'img/tauntaun.jpg');
+var newImg16 = new productImg ('unicorn', 'img/unicorn.jpg');
+var newImg17 = new productImg ('usb', 'img/usb.gif');
+var newImg18 = new productImg ('wine-glass','img/wine-glass.jpg');
+var newImg19 = new productImg('water','img/water.jpg');
 
 var randomNumber = function() {
   return Math.floor(Math.random() * imgNameArray.length);
@@ -80,15 +80,17 @@ var viewsCounter = function() {
   for ( var a = 0 ; a < imgNameArray.length ; a ++)
   {
     views[a] = imgNameArray[a].views;
-    console.log('view',views[a]);
+    //console.log('view',views[a]);
   }
   return views;
 };
+
+//imageObjectArray[w] = JSON.parse(localStorage.getItem(imageObjectArray[w].imgName));
+//localStorage.setItem(arrayObj.imgName, JSON.stringify(arrayObj));
 // set local storage
 var setingLocalStorage = function() {
   var nameArray = labelsArray();
-  console.log(nameArray);
-  localStorage.setItem('clicks', JSON.stringify(nameArray));
+  localStorage.setItem('Name', JSON.stringify(nameArray));
 };
 var setingDataLocalStorage = function() {
   var dataArray = dataCounter();
@@ -103,7 +105,12 @@ var settingViewsLocalStorage = function() {
 
 var gettingLocalStorage = function() {
   var localData = JSON.parse(localStorage.getItem('numberOfClicks'));
-  console.log(localData);
+  console.log('localData',localData);
+};
+var gettingAndSettingObjects = function() {
+  localStorage.setItem('objects',JSON.stringify(productImg));
+  var localData1 = JSON.parse(localStorage.getItem('objects'));
+  console.log('localData1',localData1);
 };
 var calculateThePercentage = function() {
   var percentage = [];
@@ -216,7 +223,7 @@ function hideChart(){
   document.getElementById('canvasPlace').hidden = true;
 }
 //Clicks********************************************************
-var i = 0;
+var i = 1;
 document.getElementById('img1').addEventListener('click',function(){
   if ( i < 25) {
     var pictureClicked = document.getElementById('img1');
@@ -246,7 +253,7 @@ document.getElementById('img2').addEventListener('click',function(){
   if( i < 25 ){
     var pictureClicked = document.getElementById('img2');
     var photoPath = pictureClicked.src;
-    var splitPhotoPath = photoPath.split('/');
+    var splitPhotoPath = photoPath.split('img/');
     splitPhotoPath[splitPhotoPath.length - 1];
     for(var j = 0 ; j < imgNameArray.length ; j++)
     {
@@ -255,7 +262,6 @@ document.getElementById('img2').addEventListener('click',function(){
         console.log('numberofClicks',imgNameArray[j].path,imgNameArray[j].numberOfTimesIthasBeenClicked);
       }
     }
-    console.log(photoPath);
     setingDataLocalStorage();
     setingLocalStorage();
     settingViewsLocalStorage();
@@ -272,7 +278,7 @@ document.getElementById('img3').addEventListener('click',function(){
   if( i < 25 ){
     var pictureClicked = document.getElementById('img3');
     var photoPath = pictureClicked.src;
-    var splitPhotoPath = photoPath.split('/');
+    var splitPhotoPath = photoPath.split('img/');
     splitPhotoPath[splitPhotoPath.length - 1];
     for(var j = 0 ; j < imgNameArray.length ; j++)
     {
@@ -299,4 +305,6 @@ document.getElementById('drowChart').addEventListener('click', function(){
 });
 document.getElementById('drowTable').addEventListener('click', function() {
   drowTable();
+  document.getElementById('drowTable').style.display = 'none';
+
 });

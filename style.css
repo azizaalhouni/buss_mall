@@ -1,6 +1,4 @@
-* {
-/*outline: dotted 1px red;*/
-}
+
 header{
   width: 960px;
   background-image: url("img/background.jpg");*/
@@ -9,19 +7,19 @@ header{
   padding-top: 65px;
   margin: 30px auto;
 }
-}
+
 .inner {
   margin: 30px auto;
       width: 960px;
 }
-h1 {
+
+ h1 {
   text-align:center;
   margin-top: 50px;
   font-size: 30px;
   font-style: normal;
   color: white;
   font-weight: 800;
-  /*background-image: url("img/images.jpg");*/
 }
 
 main{
@@ -40,6 +38,8 @@ td {
 	padding: 10px;
 	border-radius: 15px;
 }
+
+
 th {
   padding: 10px;
 	background-color: navy;
@@ -60,6 +60,7 @@ p.button {
     text-align: center;
     visibility: hidden;
   }
+
 p.button :hover {
   background: #fcdc3c;
   background-image: -webkit-linear-gradient(top, #fcdc3c, #d934ad);
@@ -75,6 +76,7 @@ img{
   height: 225px;
   padding-right: 90px;
 }
+
 div container{
   border-style: double;
   border-color: red;
@@ -84,6 +86,7 @@ div container{
   font-size: 18px;
   margin-bottom: 40px;
 }
+
 .paragraph1 {
   padding-top: 30px;
   font-size: 18px;
@@ -93,25 +96,30 @@ div container{
   border-color:black;
   border-bottom: 30px;
 }
+
 .paragraph2{
   font-size: 18px;
   text-align: center;
   margin-bottom: 30px;
   border-style:solid;
 }
+
 .paragraph3 {
   font-size: 18px;
   text-align: center;
   margin-bottom : 30px;
   border-style:ridge;
 }
+
 .hidden{
   visibility:hidden;
   display:none;
 }
+
 #chart{
   background-color: rgba(103, 14, 120, 0.09);
 }
+
 footer{
   width:960px;
   margin: 30px auto;
